@@ -1,8 +1,10 @@
 # EXPERIMENT-NO--04-Distance measurement using Ultrasonic sensor
 
-name:vishnu km
-reg no:2122232401845
-department:ai/ml
+NAME:VISHNU KM
+
+REG NO:2122232401845
+
+DEPARTMENT:AI/ML
 
 ## AIM: 
 To interface an ultrasonic pair and measure the distance in centimeters , calculate the error
