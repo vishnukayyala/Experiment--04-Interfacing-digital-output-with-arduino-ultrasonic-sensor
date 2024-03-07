@@ -42,8 +42,8 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
-
-
+![WhatsApp Image 2024-03-07 at 20 36 48_6885c7ea](https://github.com/vishnukayyala/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/151489368/97ed1603-da7d-4a84-be21-6b54e220fec8)
+![WhatsApp Image 2024-03-07 at 20 37 34_cdf876ca](https://github.com/vishnukayyala/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/151489368/e41d19a7-fb3a-475b-abae-dde4bad7499e)
 
 ### PROCEDURE:
 1.	Connect the circuit as per the circuit diagram 
@@ -59,39 +59,66 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+```
+const int trigPin=10;
+const int echoPin=9;
+int red=7;
+int green=6;
+long duration;
+float distance;
 
+void setup()
+{
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(red, OUTPUT);
+  pinMode(green, INPUT);
+  Serial.begin(9600);
+  
+}
 
-
-
-
-
-### Distance vs measurement table 
-
-			
+void loop()
+{
+  
+  digitalWrite(trigPin,LOW);
+  delay(20); 
+  digitalWrite(trigPin,HIGH);
+  delay(20);
+  digitalWrite(trigPin,LOW);
+  duration=pulseIn(echoPin,HIGH);
+  distance=duration*0.034/2;
+  Serial.print(distance);
+  Serial.println("cms");
+  
+  if(distance >5)
+  {
+    digitalWrite(red,HIGH);
+    delay(200);
+    digitalWrite(red,LOW);
+    delay(200); 
+  }
+  else 
+  {  
+    digitalWrite(green,HIGH);
+    delay(200); 
+    digitalWrite(green,LOW);
+    delay(200); 
+  } 
+}
+```
+### Distance vs measurement table :			
  
-			
-			
-			
+![WhatsApp Image 2024-03-07 at 20 39 00_982dd53d](https://github.com/vishnukayyala/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/151489368/b0efce13-32d1-440a-b366-a5ee2476e92c)
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
+![WhatsApp Image 2024-03-07 at 20 38 21_af243c2d](https://github.com/vishnukayyala/Experiment--04-Interfacing-digital-output-with-arduino-ultrasonic-sensor/assets/151489368/4ebb1fd3-3533-40bc-8302-4c6a9cd7c65e)
 
 			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
+			Average error = sum/ number of readings = 0.359
  
-
-
-
-
-
-
 
 
 ### RESULTS
 
 
-
+interfacinf digital output with audrino ultrasonic sensor was succeessfully created
  
